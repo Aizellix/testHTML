@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://psnprofiles.com/trophies/22648-final-fantasy-xvi?order=grade -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="Description"
+      content="Final Fantasy XVI Trophy List • 50 Trophies • 9,798 Owners • 15.27% Average"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <meta http-equiv="content-language" content="en" />
+    <title>Final Fantasy XVI • Trophies Checker</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script>
+      const { ff16Trop = {} } =
+        JSON.parse(localStorage.getItem("ff16Trop")) || {};
+      function clickFunc(id) {
+        console.log(id);
+        $(`#_${id} input`).attr("disabled", true);
+        $(`#_${id} input`).attr("checked", true);
+        $(`#_${id} a`).attr("onclick", "javascript: return false;");
+        $(`#_${id}`).addClass("checkedItem");
+        ff16Trop[`#_${id}`] = true;
+        console.log("=== ff16Trop", ff16Trop);
+        localStorage.setItem("ff16Trop", JSON.stringify({ ff16Trop }));
+      }
+      $(document).ready(() => {
+        const totolLeft = $("tr").length;
+        console.log("=== ff16Trop", ff16Trop);
+        console.log("=== totolLeft", totolLeft);
+        for (let i = 0; i < totolLeft; i++) {
+          if (ff16Trop[`#_${i}`]) {
+            $(`#_${i} input`).attr("disabled", true);
+            $(`#_${i} input`).attr("checked", true);
+            $(`#_${i} a`).attr("onclick", "javascript: return false;");
+            $(`#_${i}`).addClass("checkedItem");
+          }
+        }
+      });
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      body {
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        background-color: #4682b4;
+        text-align: center;
+        margin: 0;
+      }
+      input {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      tr:nth-child(even),
+      tr:nth-child(even) td {
+        cursor: pointer;
+        background-color: #ddd;
+      }
+
+      tr:nth-child(odd),
+      tr:nth-child(odd) td {
+        cursor: pointer;
+        background-color: #eee;
+      }
+
+      tr.checked,
+      tr.checked a {
+        cursor: not-allowed;
+      }
+      h1 {
+        text-shadow: 1px 2px 4px #ffffffc0;
+        margin: 16px 8px;
+      }
+      img {
+        width: 45px;
+      }
+      .desc {
+        font-size: 0.75rem;
+      }
+      .titleText {
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      table {
+        margin: 0 !important;
+        text-align: left;
+      }
+      .checkedItem {
+        box-shadow: inset 0 0 10px #000 !important;
+      }
+      .checkedItem,
+      .checkedItem td {
+        filter: grayscale(0);
+        -webkit-filter: grayscale(100%);
+        filter: gray;
+        background-color: #aaa !important;
+      }
+      .checkedItem img {
+        opacity: 0.3;
+      }
+      .checkedItem div,
+      .checkedItem div a {
+        color: rgba(0, 0, 0, 0.3) !important;
+      }
+    </style>
+  </head>
+  <body class="app">
+    <h1>Final Fantasy XVI<br /> • Trophies Checker • </h1>
+    <table class="table">
+      <tbody>
+        <tr class="" id="_0" onclick="clickFunc(0)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/1-the-chronicler"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/1S8ed425.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/1Maef700.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/1S8ed425.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(0)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/1-the-chronicler"
+                >The Chronicler</a
+              >
+            </div>
+            <div class="desc">And thus did our journey end...</div>
+          </td>
+        </tr>
+        <tr class="" id="_1" onclick="clickFunc(1)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/13-falling-star"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/13S6e0a3f.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/13Mf47bd0.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/13S6e0a3f.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(1)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/13-falling-star"
+                >Falling Star</a
+              >
+            </div>
+            <div class="desc">Fulfill a legacy.</div>
+          </td>
+        </tr>
+        <tr class="" id="_2" onclick="clickFunc(2)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/33-masterclass"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/33S335a29.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/33M20017b.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/33S335a29.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(2)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/33-masterclass"
+                >Masterclass</a
+              >
+            </div>
+            <div class="desc">
+              Upgrade all feats and abilities to their maximum.
+            </div>
+          </td>
+        </tr>
+        <tr class="" id="_3" onclick="clickFunc(3)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/50-fantasy-finally"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/50S73b3fb.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/50M7f6d6d.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/50S73b3fb.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(3)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/50-fantasy-finally"
+                >Fantasy, Finally</a
+              >
+            </div>
+            <div class="desc">Complete the game on "Final Fantasy" mode.</div>
+          </td>
+        </tr>
+        <tr class="" id="_4" onclick="clickFunc(4)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/39-for-the-hoard"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/39Sd2fc60.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/39Mf916e2.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/39Sd2fc60.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(4)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/39-for-the-hoard"
+                >For the Hoard</a
+              >
+            </div>
+            <div class="desc">Obtain all curiosities.</div>
+          </td>
+        </tr>
+        <tr class="" id="_5" onclick="clickFunc(5)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/31-fistful-of-steel"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/31S26840a.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/31M051a82.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/31S26840a.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(5)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/31-fistful-of-steel"
+                >Fistful of Steel</a
+              >
+            </div>
+            <div class="desc">
+              Execute 3 Steel Counters in a single battle (excluding those in
+              the Hall of Virtue).
+            </div>
+          </td>
+        </tr>
+        <tr class="" id="_6" onclick="clickFunc(6)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/29-cold-blooded"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/29Sf53e78.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/29M2a1603.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/29Sf53e78.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(6)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/29-cold-blooded"
+                >Cold-blooded</a
+              >
+            </div>
+            <div class="desc">
+              Simultaneously defeat three or more enemies frozen using
+              Frostbite, Permafrost, or Diamond Dust (excluding battles in the
+              Hall of Virtue).
+            </div>
+          </td>
+        </tr>
+        <tr class="" id="_7" onclick="clickFunc(7)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/49-eureka"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/49Sc23f9f.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/49Mc6cb6a.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/49Sc23f9f.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(7)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/49-eureka"
+                >Eureka</a
+              >
+            </div>
+            <div class="desc">Spend 36,000 gil at the Tub &amp; Crown.</div>
+          </td>
+        </tr>
+        <tr class="" id="_8" onclick="clickFunc(8)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/28-oh-snap"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/28S16c292.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/28Ma7e6e9.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/28S16c292.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(8)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/28-oh-snap"
+                >Oh, Snap!</a
+              >
+            </div>
+            <div class="desc">
+              Inflict Permafrost on 10 enemies by perfectly dodging attacks with
+              Cold Snap (excluding battles in the Hall of Virtue).
+            </div>
+          </td>
+        </tr>
+        <tr class="" id="_9" onclick="clickFunc(9)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/27-such-dodge-so-mega"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/27S83aa00.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/27M384bf3.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/27S83aa00.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(9)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/27-such-dodge-so-mega"
+                >Such Dodge, So Mega</a
+              >
+            </div>
+            <div class="desc">
+              Execute a Precision Dodge 3 times while charging a single
+              Megaflare (excluding battles in the Hall of Virtue).
+            </div>
+          </td>
+        </tr>
+        <tr class="" id="_10" onclick="clickFunc(10)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/19-packing-heat"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/19S1de123.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/19M583970.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/19S1de123.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(10)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/19-packing-heat"
+                >Packing Heat</a
+              >
+            </div>
+            <div class="desc">
+              Execute and land 2 Heatwave Counters in a single battle (excluding
+              those in the Hall of Virtue).
+            </div>
+          </td>
+        </tr>
+        <tr class="" id="_11" onclick="clickFunc(11)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/24-untouchable"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/24S7e248c.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/24M4dfac6.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/24S7e248c.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(11)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/24-untouchable"
+                >Untouchable</a
+              >
+            </div>
+            <div class="desc">
+              Use Titanic Block to fend off 10 enemy attacks (excluding battles
+              in the Hall of Virtue).
+            </div>
+          </td>
+        </tr>
+        <tr class="" id="_12" onclick="clickFunc(12)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/25-beat-rocking-blocks"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/25Sbb5dd5.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/25Mff1a5c.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/25Sbb5dd5.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(12)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/25-beat-rocking-blocks"
+                >Beat Rocking Blocks</a
+              >
+            </div>
+            <div class="desc">
+              Land the third punch of a Titanic Counter twice in a single battle
+              (excluding those in the Hall of Virtue).
+            </div>
+          </td>
+        </tr>
+        <tr class="" id="_13" onclick="clickFunc(13)">
+          <td>
+            <a
+              href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/26-100-mfps"
+              class=""
+            >
+              <picture class="trophy unearned unowned">
+                <source
+                  srcset="
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/26S1d3633.png,
+                    https://i.psnprofiles.com/games/c1cfc2/trophies/26M1f6210.png 1.1x
+                  "
+                />
+                <img
+                  src="./Final Fantasy XVI Trophies • PSNProfiles.com_files/26S1d3633.png"
+                />
+              </picture>
+            </a>
+          </td>
+          <td style="width: 100%">
+            <div class="titleText">
+              <input
+                type="checkbox"
+                name="check"
+                value=""
+                class="form-check-input"
+                onclick="clickFunc(13)"
+              />
+              <a
+                class="title"
+                href="https://psnprofiles.com/trophy/22648-final-fantasy-xvi/26-100-mfps"
+                >100 Mfps</a
+              >
+            </div>
+            <div class="desc">
+              Land 100 total hits with Lv. 2 or higher Megaflare (excluding
+              battles in the Hall of Virtue).
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

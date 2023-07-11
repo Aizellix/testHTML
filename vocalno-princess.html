@@ -1,0 +1,3241 @@
+<!DOCTYPE html />
+<html class="client-nojs" lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Achievements and Talents - Volcano Princess Wiki</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+		body {
+			font-family: "Poppins", sans-serif;
+			font-size: 1rem;
+			background-color: #212529;
+			margin: 0;
+			color: #fff;
+		}
+
+		td img {
+			width: 48px;
+			height: 48px;
+		}
+
+		.checkedItem {
+			box-shadow: inset 0 0 10px #000 !important;
+		}
+
+
+		.checkedItem img {
+			filter: grayscale(0);
+			-webkit-filter: grayscale(100%);
+			filter: gray;
+			opacity: 0.3;
+		}
+
+		.checkedItem td {
+			color: rgba(0, 0, 0, 0.3) !important;
+		}
+
+		tr td:first-child {
+			text-align: center;
+			width: 90px;
+		}
+
+		tr td:nth-child(2) {
+			width: 200px;
+		}
+		tr td:nth-child(3) {
+			width: 200px;
+		}
+
+		tr td:last-child {
+			width: auto;
+		}
+
+
+		tr td:first-child a {
+			cursor: default;
+		}
+
+		tr.unchecked {
+			cursor: pointer;
+		}
+
+		.undo {
+			color: red;
+			cursor: pointer;
+			font-size: 10px;
+			text-align: center;
+			margin-bottom: 8px;
+		}
+	</style>
+	<script>
+		const { volcanoPrincessAz = {} } = JSON.parse(localStorage.getItem("volcanoPrincessAz")) || {};
+
+		function addFunc(id) {
+			console.log('add', id);
+			volcanoPrincessAz[`#_${id}`] = true;
+			console.log("=== volcanoPrincessAz", volcanoPrincessAz);
+			localStorage.setItem("volcanoPrincessAz", JSON.stringify({ volcanoPrincessAz }));
+
+			$(`#_${id}`).removeClass('unchecked');
+			$(`#_${id}`).addClass("checkedItem");
+			$(`#_${id}`).removeAttr('onclick');
+			$(`#_${id} td:first`).prepend(`<div onclick="removeFunc(${id})" class="undo">del</div>`);
+		}
+
+		function removeFunc(id) {
+			console.log('undo', id);
+			volcanoPrincessAz[`#_${id}`] = false;
+			console.log("=== volcanoPrincessAz", volcanoPrincessAz);
+			localStorage.setItem("volcanoPrincessAz", JSON.stringify({ volcanoPrincessAz }));
+
+			$(`#_${id} .undo`).remove();
+			$(`#_${id}`).removeClass("checkedItem");
+			$(`#_${id}`).addClass('unchecked');
+
+			const myTimeout = setTimeout(function () {
+				$(`#_${id}`).attr("onclick", `addFunc(${id})`);
+			}, 100);
+
+			function myStopFunction() {
+				clearTimeout(myTimeout);
+			}
+
+			// console.log(id);
+			// volcanoPrincessAz[`#_${id}`] = true;
+			// console.log("=== volcanoPrincessAz", volcanoPrincessAz);
+			// localStorage.setItem("volcanoPrincessAz", JSON.stringify({ volcanoPrincessAz }));
+		}
+
+		$(document).ready(function () {
+			$("a").click((e) => {
+				e.preventDefault();
+			});
+			$('tr').each((index, element) => {
+				if ($(element).html().includes('img')) {
+					if (volcanoPrincessAz[`#_${index + 1}`]) {
+						console.log("=== volcanoPrincessAz", volcanoPrincessAz[`#_${index + 1}`]);
+						$(`#_${index + 1}`).removeClass('unchecked');
+						$(`#_${index + 1}`).addClass("checkedItem");
+						$(`#_${index + 1} td:first`).prepend(`<div onclick="removeFunc(${index + 1})" class="undo">del</div>`);
+					} else {
+						$(`#_${index + 1}`).addClass("unchecked");
+						$(`#_${index + 1}`).attr("onclick", `addFunc(${index + 1})`);
+					}
+				}
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr">
+		<div class="mw-parser-output">
+			<h2>Achievements</h2>
+			<h3>Profession</h3>
+			<table class="table table-bordered table-striped table-dark">
+				<tbody>
+					<tr>
+						<th>
+						</th>
+						<th>
+							Name</th>
+						<th>Achievement Points</th>
+						<th>How to Obtain
+						</th>
+					</tr>
+					<tr data-id="2" id="_2">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_228.png"
+								class="image"><img alt="Achievement 228.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/87/Achievement_228.png/80px-Achievement_228.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/87/Achievement_228.png 1.5x"></a>
+						</td>
+						<td>Dad is Lame</td>
+						<td>50</td>
+						<td>Example
+						</td>
+					</tr>
+					<tr data-id="3" id="_3">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_229.png"
+								class="image"><img alt="Achievement 229.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/0a/Achievement_229.png/80px-Achievement_229.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/0a/Achievement_229.png 1.5x"></a>
+						</td>
+						<td>Ordinary Father</td>
+						<td>150</td>
+						<td>Overall 50+
+						</td>
+					</tr>
+					<tr data-id="4" id="_4">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_226.png"
+								class="image"><img alt="Achievement 226.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/ee/Achievement_226.png/80px-Achievement_226.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/ee/Achievement_226.png 1.5x"></a>
+						</td>
+						<td>Father of Wisdom</td>
+						<td>300</td>
+						<td>Wise 25+
+						</td>
+					</tr>
+					<tr data-id="5" id="_5">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_227.png"
+								class="image"><img alt="Achievement 227.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/da/Achievement_227.png/80px-Achievement_227.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/da/Achievement_227.png 1.5x"></a>
+						</td>
+						<td>Father of Justice</td>
+						<td>300</td>
+						<td>Brave 25+
+						</td>
+					</tr>
+					<tr data-id="6" id="_6">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_225.png"
+								class="image"><img alt="Achievement 225.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/0f/Achievement_225.png/80px-Achievement_225.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/0f/Achievement_225.png 1.5x"></a>
+						</td>
+						<td>Moe Dad</td>
+						<td>300</td>
+						<td>Cute 25+
+						</td>
+					</tr>
+					<tr data-id="7" id="_7">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_224.png"
+								class="image"><img alt="Achievement 224.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f1/Achievement_224.png/80px-Achievement_224.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f1/Achievement_224.png 1.5x"></a>
+						</td>
+						<td>Loving Dad</td>
+						<td>300</td>
+						<td>Love 75+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table table-bordered table-striped table-dark">
+
+				<tbody>
+					<tr>
+						<th>
+						</th>
+						<th>Name</th>
+						<th>Achievement Points
+						</th>
+					</tr>
+					<tr data-id="9" id="_9">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_223.png"
+								class="image"><img alt="Achievement 223.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/06/Achievement_223.png/80px-Achievement_223.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/06/Achievement_223.png 1.5x"></a>
+						</td>
+						<td>Unemployed</td>
+						<td>50
+						</td>
+					</tr>
+					<tr data-id="10" id="_10">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_222.png"
+								class="image"><img alt="Achievement 222.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/48/Achievement_222.png/80px-Achievement_222.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/48/Achievement_222.png 1.5x"></a>
+						</td>
+						<td>Commoner</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="11" id="_11">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_220.png"
+								class="image"><img alt="Achievement 220.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/dd/Achievement_220.png/80px-Achievement_220.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/dd/Achievement_220.png 1.5x"></a>
+						</td>
+						<td>Bricklayer</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="12" id="_12">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_219.png"
+								class="image"><img alt="Achievement 219.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/81/Achievement_219.png/80px-Achievement_219.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/81/Achievement_219.png 1.5x"></a>
+						</td>
+						<td>Oarsman</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="13" id="_13">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_216.png"
+								class="image"><img alt="Achievement 216.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/49/Achievement_216.png/80px-Achievement_216.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/49/Achievement_216.png 1.5x"></a>
+						</td>
+						<td>Diligent Farmer</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="14" id="_14">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_215.png"
+								class="image"><img alt="Achievement 215.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/84/Achievement_215.png/80px-Achievement_215.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/84/Achievement_215.png 1.5x"></a>
+						</td>
+						<td>Street Fortune Teller</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="15" id="_15">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_213.png"
+								class="image"><img alt="Achievement 213.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/2f/Achievement_213.png/80px-Achievement_213.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/2f/Achievement_213.png 1.5x"></a>
+						</td>
+						<td>Waitress</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="16" id="_16">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_204.png"
+								class="image"><img alt="Achievement 204.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/8a/Achievement_204.png/80px-Achievement_204.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/8a/Achievement_204.png 1.5x"></a>
+						</td>
+						<td>Wandering Singer</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="17" id="_17">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_207.png"
+								class="image"><img alt="Achievement 207.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/aa/Achievement_207.png/80px-Achievement_207.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/aa/Achievement_207.png 1.5x"></a>
+						</td>
+						<td>Rascal</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="18" id="_18">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_196.png"
+								class="image"><img alt="Achievement 196.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/71/Achievement_196.png/80px-Achievement_196.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/71/Achievement_196.png 1.5x"></a>
+						</td>
+						<td>Amateur Novelist</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="19" id="_19">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_189.png"
+								class="image"><img alt="Achievement 189.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/71/Achievement_189.png/80px-Achievement_189.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/71/Achievement_189.png 1.5x"></a>
+						</td>
+						<td>Harlot</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="20" id="_20">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_183.png"
+								class="image"><img alt="Achievement 183.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/33/Achievement_183.png/80px-Achievement_183.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/33/Achievement_183.png 1.5x"></a>
+						</td>
+						<td>Nun</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="21" id="_21">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_171.png"
+								class="image"><img alt="Achievement 171.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/eb/Achievement_171.png/80px-Achievement_171.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/eb/Achievement_171.png 1.5x"></a>
+						</td>
+						<td>Soldier</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="22" id="_22">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_174.png"
+								class="image"><img alt="Achievement 174.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/52/Achievement_174.png/80px-Achievement_174.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/52/Achievement_174.png 1.5x"></a>
+						</td>
+						<td>Hunter</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="23" id="_23">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_186.png"
+								class="image"><img alt="Achievement 186.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/09/Achievement_186.png/80px-Achievement_186.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/09/Achievement_186.png 1.5x"></a>
+						</td>
+						<td>Theater Actress</td>
+						<td>100
+						</td>
+					</tr>
+					<tr data-id="24" id="_24">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_176.png"
+								class="image"><img alt="Achievement 176.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/9/99/Achievement_176.png/80px-Achievement_176.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/9/99/Achievement_176.png 1.5x"></a>
+						</td>
+						<td>Undercover Police Detective</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="25" id="_25">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_182.png"
+								class="image"><img alt="Achievement 182.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f7/Achievement_182.png/80px-Achievement_182.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f7/Achievement_182.png 1.5x"></a>
+						</td>
+						<td>Priest</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="26" id="_26">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_185.png"
+								class="image"><img alt="Achievement 185.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/85/Achievement_185.png/80px-Achievement_185.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/85/Achievement_185.png 1.5x"></a>
+						</td>
+						<td>Dancer</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="27" id="_27">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_195.png"
+								class="image"><img alt="Achievement 195.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/9/99/Achievement_195.png/80px-Achievement_195.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/9/99/Achievement_195.png 1.5x"></a>
+						</td>
+						<td>Popular Novelist</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="28" id="_28">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_203.png"
+								class="image"><img alt="Achievement 203.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/43/Achievement_203.png/80px-Achievement_203.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/43/Achievement_203.png 1.5x"></a>
+						</td>
+						<td>Opera Heroine</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="29" id="_29">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_209.png"
+								class="image"><img alt="Achievement 209.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/bf/Achievement_209.png/80px-Achievement_209.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/bf/Achievement_209.png 1.5x"></a>
+						</td>
+						<td>Cultist</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="30" id="_30">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_178.png"
+								class="image"><img alt="Achievement 178.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/c/c6/Achievement_178.png/80px-Achievement_178.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/c/c6/Achievement_178.png 1.5x"></a>
+						</td>
+						<td>Scholar</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="31" id="_31">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_188.png"
+								class="image"><img alt="Achievement 188.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/40/Achievement_188.png/80px-Achievement_188.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/40/Achievement_188.png 1.5x"></a>
+						</td>
+						<td>Haunted Inn Keeper</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="32" id="_32">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_192.png"
+								class="image"><img alt="Achievement 192.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1a/Achievement_192.png/80px-Achievement_192.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1a/Achievement_192.png 1.5x"></a>
+						</td>
+						<td>Belle</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="33" id="_33">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_199.png"
+								class="image"><img alt="Achievement 199.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/78/Achievement_199.png/80px-Achievement_199.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/78/Achievement_199.png 1.5x"></a>
+						</td>
+						<td>Prominent Cartoonist</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="34" id="_34">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_200.png"
+								class="image"><img alt="Achievement 200.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/22/Achievement_200.png/80px-Achievement_200.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/22/Achievement_200.png 1.5x"></a>
+						</td>
+						<td>Fashion Designer</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="35" id="_35">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_208.png"
+								class="image"><img alt="Achievement 208.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/67/Achievement_208.png/80px-Achievement_208.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/67/Achievement_208.png 1.5x"></a>
+						</td>
+						<td>Fraudster</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="36" id="_36">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_212.png"
+								class="image"><img alt="Achievement 212.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/d9/Achievement_212.png/80px-Achievement_212.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/d9/Achievement_212.png 1.5x"></a>
+						</td>
+						<td>Merchant</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="37" id="_37">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_218.png"
+								class="image"><img alt="Achievement 218.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/fd/Achievement_218.png/80px-Achievement_218.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/fd/Achievement_218.png 1.5x"></a>
+						</td>
+						<td>Doctor</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="38" id="_38">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_221.png"
+								class="image"><img alt="Achievement 221.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f5/Achievement_221.png/80px-Achievement_221.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f5/Achievement_221.png 1.5x"></a>
+						</td>
+						<td>Heart-throb</td>
+						<td>200
+						</td>
+					</tr>
+					<tr data-id="39" id="_39">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_217.png"
+								class="image"><img alt="Achievement 217.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1f/Achievement_217.png/80px-Achievement_217.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1f/Achievement_217.png 1.5x"></a>
+						</td>
+						<td>Top Chef</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="40" id="_40">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_211.png"
+								class="image"><img alt="Achievement 211.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/33/Achievement_211.png/80px-Achievement_211.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/33/Achievement_211.png 1.5x"></a>
+						</td>
+						<td>Entrepreneur</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="41" id="_41">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_214.png"
+								class="image"><img alt="Achievement 214.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/a8/Achievement_214.png/80px-Achievement_214.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/a8/Achievement_214.png 1.5x"></a>
+						</td>
+						<td>Royal Fortune Teller</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="42" id="_42">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_194.png"
+								class="image"><img alt="Achievement 194.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/bb/Achievement_194.png/80px-Achievement_194.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/bb/Achievement_194.png 1.5x"></a>
+						</td>
+						<td>Bard</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="43" id="_43">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_198.png"
+								class="image"><img alt="Achievement 198.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/85/Achievement_198.png/80px-Achievement_198.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/85/Achievement_198.png 1.5x"></a>
+						</td>
+						<td>Royal Painter</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="44" id="_44">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_202.png"
+								class="image"><img alt="Achievement 202.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/eb/Achievement_202.png/80px-Achievement_202.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/eb/Achievement_202.png 1.5x"></a>
+						</td>
+						<td>Music Composer</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="45" id="_45">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_180.png"
+								class="image"><img alt="Achievement 180.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f8/Achievement_180.png/80px-Achievement_180.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f8/Achievement_180.png 1.5x"></a>
+						</td>
+						<td>Judge</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="46" id="_46">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_187.png"
+								class="image"><img alt="Achievement 187.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/8e/Achievement_187.png/80px-Achievement_187.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/8e/Achievement_187.png 1.5x"></a>
+						</td>
+						<td>Upperclass Courtesan</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="47" id="_47">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_191.png"
+								class="image"><img alt="Achievement 191.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/18/Achievement_191.png/80px-Achievement_191.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/18/Achievement_191.png 1.5x"></a>
+						</td>
+						<td>Countess</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="48" id="_48">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_170.png"
+								class="image"><img alt="Achievement 170.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1a/Achievement_170.png/80px-Achievement_170.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1a/Achievement_170.png 1.5x"></a>
+						</td>
+						<td>General</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="49" id="_49">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_173.png"
+								class="image"><img alt="Achievement 173.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/38/Achievement_173.png/80px-Achievement_173.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/38/Achievement_173.png 1.5x"></a>
+						</td>
+						<td>Gold Adventurer</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="50" id="_50">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_175.png"
+								class="image"><img alt="Achievement 175.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/56/Achievement_175.png/80px-Achievement_175.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/56/Achievement_175.png 1.5x"></a>
+						</td>
+						<td>Guard Captain</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="51" id="_51">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_177.png"
+								class="image"><img alt="Achievement 177.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/33/Achievement_177.png/80px-Achievement_177.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/33/Achievement_177.png 1.5x"></a>
+						</td>
+						<td>The Great Scholar</td>
+						<td>300
+						</td>
+					</tr>
+					<tr data-id="52" id="_52">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_168.png"
+								class="image"><img alt="Achievement 168.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/2f/Achievement_168.png/80px-Achievement_168.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/2f/Achievement_168.png 1.5x"></a>
+						</td>
+						<td>Honorable Knight</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="53" id="_53">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_169.png"
+								class="image"><img alt="Achievement 169.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/22/Achievement_169.png/80px-Achievement_169.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/22/Achievement_169.png 1.5x"></a>
+						</td>
+						<td>Warrior</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="54" id="_54">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_172.png"
+								class="image"><img alt="Achievement 172.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/a0/Achievement_172.png/80px-Achievement_172.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/a0/Achievement_172.png 1.5x"></a>
+						</td>
+						<td>Marksman</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="55" id="_55">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_190.png"
+								class="image"><img alt="Achievement 190.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1e/Achievement_190.png/80px-Achievement_190.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1e/Achievement_190.png 1.5x"></a>
+						</td>
+						<td>Concubine</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="56" id="_56">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_184.png"
+								class="image"><img alt="Achievement 184.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/6e/Achievement_184.png/80px-Achievement_184.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/6e/Achievement_184.png 1.5x"></a>
+						</td>
+						<td>Theater Star</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="57" id="_57">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_181.png"
+								class="image"><img alt="Achievement 181.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1c/Achievement_181.png/80px-Achievement_181.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1c/Achievement_181.png 1.5x"></a>
+						</td>
+						<td>Archbishop</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="58" id="_58">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_179.png"
+								class="image"><img alt="Achievement 179.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/8f/Achievement_179.png/80px-Achievement_179.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/8f/Achievement_179.png 1.5x"></a>
+						</td>
+						<td>Minister</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="59" id="_59">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_201.png"
+								class="image"><img alt="Achievement 201.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/b3/Achievement_201.png/80px-Achievement_201.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/b3/Achievement_201.png 1.5x"></a>
+						</td>
+						<td>Famous Pianist</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="60" id="_60">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_193.png"
+								class="image"><img alt="Achievement 193.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/43/Achievement_193.png/80px-Achievement_193.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/43/Achievement_193.png 1.5x"></a>
+						</td>
+						<td>Great Writer</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="61" id="_61">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_197.png"
+								class="image"><img alt="Achievement 197.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/7c/Achievement_197.png/80px-Achievement_197.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/7c/Achievement_197.png 1.5x"></a>
+						</td>
+						<td>Legendary Artist</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="62" id="_62">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_206.png"
+								class="image"><img alt="Achievement 206.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/01/Achievement_206.png/80px-Achievement_206.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/01/Achievement_206.png 1.5x"></a>
+						</td>
+						<td>Heaven Society's Boss</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="63" id="_63">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_210.png"
+								class="image"><img alt="Achievement 210.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/e4/Achievement_210.png/80px-Achievement_210.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/e4/Achievement_210.png 1.5x"></a>
+						</td>
+						<td>The Wealthiest in the World</td>
+						<td>400
+						</td>
+					</tr>
+					<tr data-id="64" id="_64">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_205.png"
+								class="image"><img alt="Achievement 205.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/c/c5/Achievement_205.png/80px-Achievement_205.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/c/c5/Achievement_205.png 1.5x"></a>
+						</td>
+						<td>Demon Queen</td>
+						<td>500
+						</td>
+					</tr>
+					<tr data-id="65" id="_65">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_167.png"
+								class="image"><img alt="Achievement 167.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f6/Achievement_167.png/80px-Achievement_167.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f6/Achievement_167.png 1.5x"></a>
+						</td>
+						<td>Volcano Queen</td>
+						<td>500
+						</td>
+					</tr>
+					<tr data-id="66" id="_66">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_166.png"
+								class="image"><img alt="Achievement 166.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/b2/Achievement_166.png/80px-Achievement_166.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/b2/Achievement_166.png 1.5x"></a>
+						</td>
+						<td>Volcano Goddess</td>
+						<td>1000
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Emotion</h3>
+			<table class="table table-bordered table-striped table-dark">
+
+				<tbody>
+					<tr>
+						<th>
+						</th>
+						<th>Name</th>
+						<th>Achievement Points</th>
+						<th>How to Obtain
+						</th>
+					</tr>
+					<tr data-id="68" id="_68">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_148.png"
+								class="image"><img alt="Achievement 148.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/9/9e/Achievement_148.png/80px-Achievement_148.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/9/9e/Achievement_148.png 1.5x"></a>
+						</td>
+						<td>Chef's Honey</td>
+						<td>100</td>
+						<td>Marry Mona
+						</td>
+					</tr>
+					<tr data-id="69" id="_69">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_149.png"
+								class="image"><img alt="Achievement 149.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/6d/Achievement_149.png/80px-Achievement_149.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/6d/Achievement_149.png 1.5x"></a>
+						</td>
+						<td>Nina's Bride</td>
+						<td>100</td>
+						<td>Marry Nina
+						</td>
+					</tr>
+					<tr data-id="70" id="_70">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_150.png"
+								class="image"><img alt="Achievement 150.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/33/Achievement_150.png/80px-Achievement_150.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/33/Achievement_150.png 1.5x"></a>
+						</td>
+						<td>Musician's Sun</td>
+						<td>100</td>
+						<td>Marry Craig
+						</td>
+					</tr>
+					<tr data-id="71" id="_71">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_151.png"
+								class="image"><img alt="Achievement 151.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/d2/Achievement_151.png/80px-Achievement_151.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/d2/Achievement_151.png 1.5x"></a>
+						</td>
+						<td>Painter's Mockingbird</td>
+						<td>100</td>
+						<td>Marry Benson
+						</td>
+					</tr>
+					<tr data-id="72" id="_72">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_152.png"
+								class="image"><img alt="Achievement 152.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/e1/Achievement_152.png/80px-Achievement_152.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/e1/Achievement_152.png 1.5x"></a>
+						</td>
+						<td>The Bird of Red</td>
+						<td>100</td>
+						<td>Marry Hacket
+						</td>
+					</tr>
+					<tr data-id="73" id="_73">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_153.png"
+								class="image"><img alt="Achievement 153.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/33/Achievement_153.png/80px-Achievement_153.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/33/Achievement_153.png 1.5x"></a>
+						</td>
+						<td>The Judge's St.Elmo's Fire</td>
+						<td>100</td>
+						<td>Marry Ze
+						</td>
+					</tr>
+					<tr data-id="74" id="_74">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_154.png"
+								class="image"><img alt="Achievement 154.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/af/Achievement_154.png/80px-Achievement_154.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/af/Achievement_154.png 1.5x"></a>
+						</td>
+						<td>The Novelist's Heroine</td>
+						<td>100</td>
+						<td>Marry Lon
+						</td>
+					</tr>
+					<tr data-id="75" id="_75">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_155.png"
+								class="image"><img alt="Achievement 155.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/62/Achievement_155.png/80px-Achievement_155.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/62/Achievement_155.png 1.5x"></a>
+						</td>
+						<td>The Queen's Exclusive Knight</td>
+						<td>100</td>
+						<td>Marry Gwyneth
+						</td>
+					</tr>
+					<tr data-id="76" id="_76">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_156.png"
+								class="image"><img alt="Achievement 156.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/9/9a/Achievement_156.png/80px-Achievement_156.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/9/9a/Achievement_156.png 1.5x"></a>
+						</td>
+						<td>The Prince's Ever After</td>
+						<td>100</td>
+						<td>Marry Kenneth
+						</td>
+					</tr>
+					<tr data-id="77" id="_77">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_157.png"
+								class="image"><img alt="Achievement 157.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/28/Achievement_157.png/80px-Achievement_157.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/28/Achievement_157.png 1.5x"></a>
+						</td>
+						<td>The Sholar's Spring Breeze</td>
+						<td>100</td>
+						<td>Marry Claude
+						</td>
+					</tr>
+					<tr data-id="78" id="_78">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_158.png"
+								class="image"><img alt="Achievement 158.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/5c/Achievement_158.png/80px-Achievement_158.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/5c/Achievement_158.png 1.5x"></a>
+						</td>
+						<td>Braveheart Lakeside</td>
+						<td>100</td>
+						<td>Marry Lebsa
+						</td>
+					</tr>
+					<tr data-id="79" id="_79">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_233.png"
+								class="image"><img alt="Achievement 233.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f4/Achievement_233.png/80px-Achievement_233.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f4/Achievement_233.png 1.5x"></a>
+						</td>
+						<td>Nightmare of the Brave</td>
+						<td>100</td>
+						<td>Marry Lebsa (Special)
+						</td>
+					</tr>
+					<tr data-id="80" id="_80">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_159.png"
+								class="image"><img alt="Achievement 159.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/4f/Achievement_159.png/80px-Achievement_159.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/4f/Achievement_159.png 1.5x"></a>
+						</td>
+						<td>The Bard's Companion</td>
+						<td>100</td>
+						<td>Marry Derrick
+						</td>
+					</tr>
+					<tr data-id="81" id="_81">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_160.png"
+								class="image"><img alt="Achievement 160.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/69/Achievement_160.png/80px-Achievement_160.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/69/Achievement_160.png 1.5x"></a>
+						</td>
+						<td>The Nun's Keeper</td>
+						<td>100</td>
+						<td>Marry Connie
+						</td>
+					</tr>
+					<tr data-id="82" id="_82">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_161.png"
+								class="image"><img alt="Achievement 161.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/ab/Achievement_161.png/80px-Achievement_161.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/ab/Achievement_161.png 1.5x"></a>
+						</td>
+						<td>My Cloth Designer</td>
+						<td>100</td>
+						<td>Marry Rebecca
+						</td>
+					</tr>
+					<tr data-id="83" id="_83">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_164.png"
+								class="image"><img alt="Achievement 164.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/be/Achievement_164.png/80px-Achievement_164.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/be/Achievement_164.png 1.5x"></a>
+						</td>
+						<td>Mutual Care</td>
+						<td>100</td>
+						<td>Marry Mary
+						</td>
+					</tr>
+					<tr data-id="84" id="_84">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_165.png"
+								class="image"><img alt="Achievement 165.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/fc/Achievement_165.png/80px-Achievement_165.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/fc/Achievement_165.png 1.5x"></a>
+						</td>
+						<td>Soldier's Wife</td>
+						<td>100</td>
+						<td>Marry Mark
+						</td>
+					</tr>
+					<tr data-id="85" id="_85">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_163.png"
+								class="image"><img alt="Achievement 163.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/63/Achievement_163.png/80px-Achievement_163.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/63/Achievement_163.png 1.5x"></a>
+						</td>
+						<td>A Promise to Grandpa</td>
+						<td>100</td>
+						<td>Marry Basilou's Son
+						</td>
+					</tr>
+					<tr data-id="86" id="_86">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_162.png"
+								class="image"><img alt="Achievement 162.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/8d/Achievement_162.png/80px-Achievement_162.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/8d/Achievement_162.png 1.5x"></a>
+						</td>
+						<td>My Weapon Forger</td>
+						<td>100</td>
+						<td>Marry Jermaine's Son
+						</td>
+					</tr>
+					<tr data-id="87" id="_87">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_145.png"
+								class="image"><img alt="Achievement 145.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/d2/Achievement_145.png/80px-Achievement_145.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/d2/Achievement_145.png 1.5x"></a>
+						</td>
+						<td>Kite of the Royal Family</td>
+						<td>300</td>
+						<td>Marry Gwyneth and Kenneth
+						</td>
+					</tr>
+					<tr data-id="88" id="_88">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_230.png"
+								class="image"><img alt="Achievement 230.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/8f/Achievement_230.png/80px-Achievement_230.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/8f/Achievement_230.png 1.5x"></a>
+						</td>
+						<td>Laurels and Wildflowers</td>
+						<td>100</td>
+						<td>Marry Gwyneth and Mona
+						</td>
+					</tr>
+					<tr data-id="89" id="_89">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_146.png"
+								class="image"><img alt="Achievement 146.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1e/Achievement_146.png/80px-Achievement_146.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1e/Achievement_146.png 1.5x"></a>
+						</td>
+						<td>Girl's Paradise</td>
+						<td>300</td>
+						<td>Marry Mona and Nina
+						</td>
+					</tr>
+					<tr data-id="90" id="_90">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_231.png"
+								class="image"><img alt="Achievement 231.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/17/Achievement_231.png/80px-Achievement_231.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/17/Achievement_231.png 1.5x"></a>
+						</td>
+						<td>Golden Orchid and Jasmine</td>
+						<td>100</td>
+						<td>Marry Craig and Lon
+						</td>
+					</tr>
+					<tr data-id="91" id="_91">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_232.png"
+								class="image"><img alt="Achievement 232.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/05/Achievement_232.png/80px-Achievement_232.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/05/Achievement_232.png 1.5x"></a>
+						</td>
+						<td>Snow Flower and Rose</td>
+						<td>100</td>
+						<td>Marry Hacket and Ze
+						</td>
+					</tr>
+					<tr data-id="92" id="_92">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_147.png"
+								class="image"><img alt="Achievement 147.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/06/Achievement_147.png/80px-Achievement_147.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/06/Achievement_147.png 1.5x"></a>
+						</td>
+						<td>Let's Harvest Wheat Together</td>
+						<td>300</td>
+						<td>Marry Benson, Craig, Hacket, Lon and Ze
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Main Story</h3>
+			<table class="table table-bordered table-striped table-dark">
+
+				<tbody>
+					<tr>
+						<th>
+						</th>
+						<th>Name</th>
+						<th>Achievement Points</th>
+						<th>How to Obtain
+						</th>
+					</tr>
+					<tr data-id="94" id="_94">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_99.png"
+								class="image"><img alt="Achievement 99.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/52/Achievement_99.png/80px-Achievement_99.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/52/Achievement_99.png 1.5x"></a>
+						</td>
+						<td>Birth of My Daughter</td>
+						<td>50</td>
+						<td>Starting the game
+						</td>
+					</tr>
+					<tr data-id="95" id="_95">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_100.png"
+								class="image"><img alt="Achievement 100.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1e/Achievement_100.png/80px-Achievement_100.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1e/Achievement_100.png 1.5x"></a>
+						</td>
+						<td>Happy Spring</td>
+						<td>50</td>
+						<td>Reach first Spring
+						</td>
+					</tr>
+					<tr data-id="96" id="_96">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_101.png"
+								class="image"><img alt="Achievement 101.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/6f/Achievement_101.png/80px-Achievement_101.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/6f/Achievement_101.png 1.5x"></a>
+						</td>
+						<td>Happy Summer</td>
+						<td>50</td>
+						<td>Reach first Summer
+						</td>
+					</tr>
+					<tr data-id="97" id="_97">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_102.png"
+								class="image"><img alt="Achievement 102.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/bf/Achievement_102.png/80px-Achievement_102.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/bf/Achievement_102.png 1.5x"></a>
+						</td>
+						<td>Happy Fall</td>
+						<td>50</td>
+						<td>Reach first Fall
+						</td>
+					</tr>
+					<tr data-id="98" id="_98">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_103.png"
+								class="image"><img alt="Achievement 103.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/0e/Achievement_103.png/80px-Achievement_103.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/0e/Achievement_103.png 1.5x"></a>
+						</td>
+						<td>Happy Winter</td>
+						<td>50</td>
+						<td>Reach first Winter
+						</td>
+					</tr>
+					<tr data-id="99" id="_99">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_104.png"
+								class="image"><img alt="Achievement 104.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/27/Achievement_104.png/80px-Achievement_104.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/27/Achievement_104.png 1.5x"></a>
+						</td>
+						<td>Birdie Day Celebration</td>
+						<td>50</td>
+						<td>Reach first Birdie Festival in Spring June
+						</td>
+					</tr>
+					<tr data-id="100" id="_100">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_105.png"
+								class="image"><img alt="Achievement 105.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/a5/Achievement_105.png/80px-Achievement_105.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/a5/Achievement_105.png 1.5x"></a>
+						</td>
+						<td>Volcano Ceremony</td>
+						<td>50</td>
+						<td>Reach first Volcano Festival in Summer October
+						</td>
+					</tr>
+					<tr data-id="101" id="_101">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_106.png"
+								class="image"><img alt="Achievement 106.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/bd/Achievement_106.png/80px-Achievement_106.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/bd/Achievement_106.png 1.5x"></a>
+						</td>
+						<td>Journey's End</td>
+						<td>50</td>
+						<td>Reach Winter December
+						</td>
+					</tr>
+					<tr data-id="102" id="_102">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_107.png"
+								class="image"><img alt="Achievement 107.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/ef/Achievement_107.png/80px-Achievement_107.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/ef/Achievement_107.png 1.5x"></a>
+						</td>
+						<td>Mysterious Treasures</td>
+						<td>50</td>
+						<td>Buy from the <a href="https://volcanoprincess.miraheze.org/wiki/Calendar#Traveling_Merchant"
+								title="Calendar">Traveling
+								Merchant</a> in any September (turn 28, 16, and 4)
+						</td>
+					</tr>
+					<tr data-id="103" id="_103">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_108.png"
+								class="image"><img alt="Achievement 108.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/24/Achievement_108.png/80px-Achievement_108.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/24/Achievement_108.png 1.5x"></a>
+						</td>
+						<td>Letter from My daughter</td>
+						<td>100</td>
+						<td>Reach the end of the game
+						</td>
+					</tr>
+					<tr data-id="104" id="_104">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_117.png"
+								class="image"><img alt="Achievement 117.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/62/Achievement_117.png/80px-Achievement_117.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/62/Achievement_117.png 1.5x"></a>
+						</td>
+						<td>Chef Brave!</td>
+						<td>50</td>
+						<td>Random morning event
+						</td>
+					</tr>
+					<tr data-id="105" id="_105">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_118.png"
+								class="image"><img alt="Achievement 118.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/d4/Achievement_118.png/80px-Achievement_118.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/d4/Achievement_118.png 1.5x"></a>
+						</td>
+						<td>The Beautiful Elf</td>
+						<td>50</td>
+						<td>Random morning event
+						</td>
+					</tr>
+					<tr data-id="106" id="_106">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_119.png"
+								class="image"><img alt="Achievement 119.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/4e/Achievement_119.png/80px-Achievement_119.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/4e/Achievement_119.png 1.5x"></a>
+						</td>
+						<td>Strong Man</td>
+						<td>50</td>
+						<td>Random morning event
+						</td>
+					</tr>
+					<tr data-id="107" id="_107">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_120.png"
+								class="image"><img alt="Achievement 120.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1a/Achievement_120.png/80px-Achievement_120.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1a/Achievement_120.png 1.5x"></a>
+						</td>
+						<td>Bird of Wisdom</td>
+						<td>50</td>
+						<td>Random morning event
+						</td>
+					</tr>
+					<tr data-id="108" id="_108">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_121.png"
+								class="image"><img alt="Achievement 121.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f3/Achievement_121.png/80px-Achievement_121.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f3/Achievement_121.png 1.5x"></a>
+						</td>
+						<td>Messenger of the Magic World</td>
+						<td>50</td>
+						<td>Random morning event
+						</td>
+					</tr>
+					<tr data-id="109" id="_109">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_126.png"
+								class="image"><img alt="Achievement 126.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/ac/Achievement_126.png/80px-Achievement_126.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/ac/Achievement_126.png 1.5x"></a>
+						</td>
+						<td>Turn and Retreat</td>
+						<td>50</td>
+						<td>Enter the Dark Alleys in Abandoned Harbor and choose leave on the first event.
+							<br> Available from Summer July (turn 24).
+						</td>
+					</tr>
+					<tr data-id="110" id="_110">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_135.png"
+								class="image"><img alt="Achievement 135.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/68/Achievement_135.png/80px-Achievement_135.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/68/Achievement_135.png 1.5x"></a>
+						</td>
+						<td>My Confession</td>
+						<td>50</td>
+						<td>Use "Repent" at the Altar for 500G. Available from Fall January (turn 30).
+						</td>
+					</tr>
+					<tr data-id="111" id="_111">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_124.png"
+								class="image"><img alt="Achievement 124.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1e/Achievement_124.png/80px-Achievement_124.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1e/Achievement_124.png 1.5x"></a>
+						</td>
+						<td>The Name of the Owl Girl</td>
+						<td>300</td>
+						<td>
+							<div class="spoilers" data-showtext="show spoiler" data-hidetext="hide spoiler">
+								<span class="spoilers-button"></span>
+								<div class="spoilers-body" style="display:none;">Beat the Owl Princess during
+									crusade in Winter Nov. (Turn 2) </div>
+							</div>
+						</td>
+					</tr>
+					<tr data-id="112" id="_112">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_125.png"
+								class="image"><img alt="Achievement 125.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/5f/Achievement_125.png/80px-Achievement_125.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/5f/Achievement_125.png 1.5x"></a>
+						</td>
+						<td>Tomb of Lebsa (spoilers)
+						</td>
+						<td>500</td>
+						<td>
+							<div class="spoilers" data-showtext="show spoiler" data-hidetext="hide spoiler">
+								<span class="spoilers-button"></span>
+								<div class="spoilers-body" style="display:none;">Beat <a
+										href="https://volcanoprincess.miraheze.org/wiki/Asbel" title="Asbel">Asbel</a>
+									during crusade in Winter November (Turn 2).
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr data-id="113" id="_113">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_109.png"
+								class="image"><img alt="Achievement 109.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/ed/Achievement_109.png/80px-Achievement_109.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/ed/Achievement_109.png 1.5x"></a>
+						</td>
+						<td>Together with My Wife</td>
+						<td>500</td>
+						<td>Reach the True <a href="https://volcanoprincess.miraheze.org/wiki/Endings"
+								title="Endings">Ending</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Daughter's Growth</h3>
+			<table class="table table-bordered table-striped table-dark">
+				<tbody>
+					<tr>
+						<th>
+						</th>
+						<th>Name
+						</th>
+						<th>Achievement Points
+						</th>
+						<th>How to obtain
+						</th>
+					</tr>
+					<tr data-id="115" id="_115">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_5.png"
+								class="image"><img alt="Achievement 5.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/74/Achievement_5.png/80px-Achievement_5.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/74/Achievement_5.png 1.5x"></a>
+						</td>
+						<td>Gold Award
+						</td>
+						<td>500
+						</td>
+						<td>Become first in the Volcano Kingdom Festival.
+						</td>
+					</tr>
+					<tr data-id="116" id="_116">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_6.png"
+								class="image"><img alt="Achievement 6.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/71/Achievement_6.png/80px-Achievement_6.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/71/Achievement_6.png 1.5x"></a>
+						</td>
+						<td>Silver Award
+						</td>
+						<td>300
+						</td>
+						<td>Become second in the Volcano Kingdom Festival.
+						</td>
+					</tr>
+					<tr data-id="117" id="_117">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_7.png"
+								class="image"><img alt="Achievement 7.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/77/Achievement_7.png/80px-Achievement_7.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/77/Achievement_7.png 1.5x"></a>
+						</td>
+						<td>Third's not that bad
+						</td>
+						<td>100
+						</td>
+						<td>Become third in the Volcano Kingdom Festival.
+						</td>
+					</tr>
+					<tr data-id="118" id="_118">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_31.png"
+								class="image"><img alt="Achievement 31.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/ff/Achievement_31.png/80px-Achievement_31.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/ff/Achievement_31.png 1.5x"></a>
+						</td>
+						<td>Little Learner
+						</td>
+						<td>50
+						</td>
+						<td>Complete 10 courses' study.
+						</td>
+					</tr>
+					<tr data-id="119" id="_119">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_32.png"
+								class="image"><img alt="Achievement 32.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/84/Achievement_32.png/80px-Achievement_32.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/84/Achievement_32.png 1.5x"></a>
+						</td>
+						<td>Class Encourager
+						</td>
+						<td>100
+						</td>
+						<td>Complete 30 courses' study.
+						</td>
+					</tr>
+					<tr data-id="120" id="_120">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_33.png"
+								class="image"><img alt="Achievement 33.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/28/Achievement_33.png/80px-Achievement_33.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/28/Achievement_33.png 1.5x"></a>
+						</td>
+						<td>Athlete of Lessons
+						</td>
+						<td>200
+						</td>
+						<td>Complete 50 courses' study.
+						</td>
+					</tr>
+					<tr data-id="121" id="_121">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_34.png"
+								class="image"><img alt="Achievement 34.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/59/Achievement_34.png/80px-Achievement_34.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/59/Achievement_34.png 1.5x"></a>
+						</td>
+						<td>Honorable Knight of Lessons
+						</td>
+						<td>300
+						</td>
+						<td>Complete 70 courses' study.
+						</td>
+					</tr>
+					<tr data-id="122" id="_122">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_35.png"
+								class="image"><img alt="Achievement 35.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/63/Achievement_35.png/80px-Achievement_35.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/63/Achievement_35.png 1.5x"></a>
+						</td>
+						<td>The Walking Encyclopedia
+						</td>
+						<td>500
+						</td>
+						<td>Complete 100 courses' study.
+						</td>
+					</tr>
+					<tr data-id="123" id="_123">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_49.png"
+								class="image"><img alt="Achievement 49.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/7a/Achievement_49.png/80px-Achievement_49.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/7a/Achievement_49.png 1.5x"></a>
+						</td>
+						<td>It's so nice to have friends
+						</td>
+						<td>100
+						</td>
+						<td>Have 5 friends.
+						</td>
+					</tr>
+					<tr data-id="124" id="_124">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_50.png"
+								class="image"><img alt="Achievement 50.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/b7/Achievement_50.png/80px-Achievement_50.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/b7/Achievement_50.png 1.5x"></a>
+						</td>
+						<td>Everyone is my friend
+						</td>
+						<td>300
+						</td>
+						<td>Have 15 friends.
+						</td>
+					</tr>
+					<tr data-id="125" id="_125">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_51.png"
+								class="image"><img alt="Achievement 51.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/e7/Achievement_51.png/80px-Achievement_51.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/e7/Achievement_51.png 1.5x"></a>
+						</td>
+						<td>Best friends who can talk about anything
+						</td>
+						<td>200
+						</td>
+						<td>Have 5 best friends.
+						</td>
+					</tr>
+					<tr data-id="126" id="_126">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_52.png"
+								class="image"><img alt="Achievement 52.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/7c/Achievement_52.png/80px-Achievement_52.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/7c/Achievement_52.png 1.5x"></a>
+						</td>
+						<td>You can have many relationships
+						</td>
+						<td>500
+						</td>
+						<td>Have 15 best friends.
+						</td>
+					</tr>
+					<tr data-id="127" id="_127">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_60.png"
+								class="image"><img alt="Achievement 60.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/0a/Achievement_60.png/80px-Achievement_60.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/0a/Achievement_60.png 1.5x"></a>
+						</td>
+						<td>It's becoming fun to read
+						</td>
+						<td>100
+						</td>
+						<td>Finish reading 10 books.
+						</td>
+					</tr>
+					<tr data-id="128" id="_128">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_61.png"
+								class="image"><img alt="Achievement 61.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/0d/Achievement_61.png/80px-Achievement_61.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/0d/Achievement_61.png 1.5x"></a>
+						</td>
+						<td>A book that walks
+						</td>
+						<td>200
+						</td>
+						<td>Finish reading 20 books.
+						</td>
+					</tr>
+					<tr data-id="129" id="_129">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_62.png"
+								class="image"><img alt="Achievement 62.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/3f/Achievement_62.png/80px-Achievement_62.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/3f/Achievement_62.png 1.5x"></a>
+						</td>
+						<td>There's more I want to read about
+						</td>
+						<td>300
+						</td>
+						<td>Finish reading 40 books.
+						</td>
+					</tr>
+					<tr data-id="130" id="_130">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_63.png"
+								class="image"><img alt="Achievement 63.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/c/c3/Achievement_63.png/80px-Achievement_63.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/c/c3/Achievement_63.png 1.5x"></a>
+						</td>
+						<td>Can't forget about learning outside of class
+						</td>
+						<td>100
+						</td>
+						<td>Complete 30 course instructions.
+						</td>
+					</tr>
+					<tr data-id="131" id="_131">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_64.png"
+								class="image"><img alt="Achievement 64.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1a/Achievement_64.png/80px-Achievement_64.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1a/Achievement_64.png 1.5x"></a>
+						</td>
+						<td>Learnt a lot without knowing
+						</td>
+						<td>200
+						</td>
+						<td>Complete 100 course instructions.
+						</td>
+					</tr>
+					<tr data-id="132" id="_132">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_65.png"
+								class="image"><img alt="Achievement 65.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/61/Achievement_65.png/80px-Achievement_65.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/61/Achievement_65.png 1.5x"></a>
+						</td>
+						<td>Excellent Learner
+						</td>
+						<td>300
+						</td>
+						<td>Complete 200 course instructions
+						</td>
+					</tr>
+					<tr data-id="133" id="_133">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_81.png"
+								class="image"><img alt="Achievement 81.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/e4/Achievement_81.png/80px-Achievement_81.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/e4/Achievement_81.png 1.5x"></a>
+						</td>
+						<td>Running Pony
+						</td>
+						<td>100
+						</td>
+						<td>Become the top three in horseracing 3 times.
+						</td>
+					</tr>
+					<tr data-id="134" id="_134">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_82.png"
+								class="image"><img alt="Achievement 82.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/3e/Achievement_82.png/80px-Achievement_82.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/3e/Achievement_82.png 1.5x"></a>
+						</td>
+						<td>Fighting Pony
+						</td>
+						<td>200
+						</td>
+						<td>Become the top three in horseracing 6 times.
+						</td>
+					</tr>
+					<tr data-id="135" id="_135">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_83.png"
+								class="image"><img alt="Achievement 83.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/e7/Achievement_83.png/80px-Achievement_83.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/e7/Achievement_83.png 1.5x"></a>
+						</td>
+						<td>Bountiful Pony
+						</td>
+						<td>300
+						</td>
+						<td>Become top three in horseracing 10 times.
+						</td>
+					</tr>
+					<tr data-id="136" id="_136">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_91.png"
+								class="image"><img alt="Achievement 91.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/6f/Achievement_91.png/80px-Achievement_91.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/6f/Achievement_91.png 1.5x"></a>
+						</td>
+						<td>Much money
+						</td>
+						<td>100
+						</td>
+						<td>Total gold earned reach 20,000.
+						</td>
+					</tr>
+					<tr data-id="137" id="_137">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_92.png"
+								class="image"><img alt="Achievement 92.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/df/Achievement_92.png/80px-Achievement_92.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/df/Achievement_92.png 1.5x"></a>
+						</td>
+						<td>So much money
+						</td>
+						<td>200
+						</td>
+						<td>Total gold earned reach 50,000.
+						</td>
+					</tr>
+					<tr data-id="138" id="_138">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_93.png"
+								class="image"><img alt="Achievement 93.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f3/Achievement_93.png/80px-Achievement_93.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f3/Achievement_93.png 1.5x"></a>
+						</td>
+						<td>Money Storm
+						</td>
+						<td>300
+						</td>
+						<td>Total gold earned reached 100,000.
+						</td>
+					</tr>
+					<tr data-id="139" id="_139">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_94.png"
+								class="image"><img alt="Achievement 94.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/15/Achievement_94.png/80px-Achievement_94.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/15/Achievement_94.png 1.5x"></a>
+						</td>
+						<td>Renowned
+						</td>
+						<td>100
+						</td>
+						<td>Total reputation obtained reach 3,000.
+						</td>
+					</tr>
+					<tr data-id="140" id="_140">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_95.png"
+								class="image"><img alt="Achievement 95.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/7e/Achievement_95.png/80px-Achievement_95.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/7e/Achievement_95.png 1.5x"></a>
+						</td>
+						<td>Reputable
+						</td>
+						<td>200
+						</td>
+						<td>Total reputation obtained reach 6,000.
+						</td>
+					</tr>
+					<tr data-id="141" id="_141">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_96.png"
+								class="image"><img alt="Achievement 96.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/e3/Achievement_96.png/80px-Achievement_96.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/e3/Achievement_96.png 1.5x"></a>
+						</td>
+						<td>Public Figure
+						</td>
+						<td>300
+						</td>
+						<td>Total reputation obtained reach 10,000.
+						</td>
+					</tr>
+					<tr data-id="142" id="_142">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_110.png"
+								class="image"><img alt="Achievement 110.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/fd/Achievement_110.png/80px-Achievement_110.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/fd/Achievement_110.png 1.5x"></a>
+						</td>
+						<td>Fall into Darkness
+						</td>
+						<td>50
+						</td>
+						<td>Darkness ≥ 50
+						</td>
+					</tr>
+					<tr data-id="143" id="_143">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_111.png"
+								class="image"><img alt="Achievement 111.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/45/Achievement_111.png/80px-Achievement_111.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/45/Achievement_111.png 1.5x"></a>
+						</td>
+						<td>The Path of Darkness
+						</td>
+						<td>100
+						</td>
+						<td>Darkness ≥ 150
+						</td>
+					</tr>
+					<tr data-id="144" id="_144">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_113.png"
+								class="image"><img alt="Achievement 113.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/52/Achievement_113.png/80px-Achievement_113.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/52/Achievement_113.png 1.5x"></a>
+						</td>
+						<td>Be A Knight!
+						</td>
+						<td>50
+						</td>
+						<td>Reaching the rank of Junior Knight.
+						</td>
+					</tr>
+					<tr data-id="145" id="_145">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_114.png"
+								class="image"><img alt="Achievement 114.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/22/Achievement_114.png/80px-Achievement_114.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/22/Achievement_114.png 1.5x"></a>
+						</td>
+						<td>Intermediate Knight!
+						</td>
+						<td>100
+						</td>
+						<td>Reach the rank of Intermediate Knight.
+						</td>
+					</tr>
+					<tr data-id="146" id="_146">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_115.png"
+								class="image"><img alt="Achievement 115.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/4d/Achievement_115.png/80px-Achievement_115.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/4d/Achievement_115.png 1.5x"></a>
+						</td>
+						<td>A Glorious Senior Knight
+						</td>
+						<td>150
+						</td>
+						<td>Reaching the rank of Advanced Knight
+						</td>
+					</tr>
+					<tr data-id="147" id="_147">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_116.png"
+								class="image"><img alt="Achievement 116.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/c/c9/Achievement_116.png/80px-Achievement_116.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/c/c9/Achievement_116.png 1.5x"></a>
+						</td>
+						<td>Legendary Ultimate Knight
+						</td>
+						<td>100
+						</td>
+						<td>Reaching the rank of Ultimate Knight.
+						</td>
+					</tr>
+					<tr data-id="148" id="_148">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_127.png"
+								class="image"><img alt="Achievement 127.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/08/Achievement_127.png/80px-Achievement_127.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/08/Achievement_127.png 1.5x"></a>
+						</td>
+						<td>Powerful Warrior
+						</td>
+						<td>300
+						</td>
+						<td>STR reached S rank.
+						</td>
+					</tr>
+					<tr data-id="149" id="_149">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_128.png"
+								class="image"><img alt="Achievement 128.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/b5/Achievement_128.png/80px-Achievement_128.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/b5/Achievement_128.png 1.5x"></a>
+						</td>
+						<td>The Wise One
+						</td>
+						<td>300
+						</td>
+						<td>INT reached S rank.
+						</td>
+					</tr>
+					<tr data-id="150" id="_150">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_129.png"
+								class="image"><img alt="Achievement 129.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/59/Achievement_129.png/80px-Achievement_129.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/59/Achievement_129.png 1.5x"></a>
+						</td>
+						<td>The Romantic Singer
+						</td>
+						<td>300
+						</td>
+						<td>EMO reached S rank.
+						</td>
+					</tr>
+					<tr data-id="151" id="_151">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_130.png"
+								class="image"><img alt="Achievement 130.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/12/Achievement_130.png/80px-Achievement_130.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/12/Achievement_130.png 1.5x"></a>
+						</td>
+						<td>Imaginative Poet
+						</td>
+						<td>300
+						</td>
+						<td>IMG reached S rank.
+						</td>
+					</tr>
+					<tr data-id="152" id="_152">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_131.png"
+								class="image"><img alt="Achievement 131.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/60/Achievement_131.png/80px-Achievement_131.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/60/Achievement_131.png 1.5x"></a>
+						</td>
+						<td>Goddess of Strength
+						</td>
+						<td>500
+						</td>
+						<td>Stamina reaches 150.
+						</td>
+					</tr>
+					<tr data-id="153" id="_153">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_132.png"
+								class="image"><img alt="Achievement 132.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/b5/Achievement_132.png/80px-Achievement_132.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/b5/Achievement_132.png 1.5x"></a>
+						</td>
+						<td>Goddess of Wisdom
+						</td>
+						<td>500
+						</td>
+						<td>Mind reaches 150.
+						</td>
+					</tr>
+					<tr data-id="154" id="_154">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_133.png"
+								class="image"><img alt="Achievement 133.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/47/Achievement_133.png/80px-Achievement_133.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/47/Achievement_133.png 1.5x"></a>
+						</td>
+						<td>Goddess of Perfection
+						</td>
+						<td>500
+						</td>
+						<td>Charisma reaches 150.
+						</td>
+					</tr>
+					<tr data-id="155" id="_155">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_134.png"
+								class="image"><img alt="Achievement 134.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/77/Achievement_134.png/80px-Achievement_134.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/77/Achievement_134.png 1.5x"></a>
+						</td>
+						<td>Goddess of Martial Arts
+						</td>
+						<td>500
+						</td>
+						<td>Attack power reaches 200.
+						</td>
+					</tr>
+					<tr data-id="156" id="_156">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_136.png"
+								class="image"><img alt="Achievement 136.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/b7/Achievement_136.png/80px-Achievement_136.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/b7/Achievement_136.png 1.5x"></a>
+						</td>
+						<td>Master of Swordplay
+						</td>
+						<td>300
+						</td>
+						<td>Complete 14 sword courses.
+						</td>
+					</tr>
+					<tr data-id="157" id="_157">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_137.png"
+								class="image"><img alt="Achievement 137.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/07/Achievement_137.png/80px-Achievement_137.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/07/Achievement_137.png 1.5x"></a>
+						</td>
+						<td>Master of Bowmanship
+						</td>
+						<td>300
+						</td>
+						<td>Complete 14 bow courses.
+						</td>
+					</tr>
+					<tr data-id="158" id="_158">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_138.png"
+								class="image"><img alt="Achievement 138.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/02/Achievement_138.png/80px-Achievement_138.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/02/Achievement_138.png 1.5x"></a>
+						</td>
+						<td>Professor of Science
+						</td>
+						<td>300
+						</td>
+						<td>Complete 14 science courses.
+						</td>
+					</tr>
+					<tr data-id="159" id="_159">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_139.png"
+								class="image"><img alt="Achievement 139.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/9/91/Achievement_139.png/80px-Achievement_139.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/9/91/Achievement_139.png 1.5x"></a>
+						</td>
+						<td>Professor of Theology
+						</td>
+						<td>300
+						</td>
+						<td>Complete 14 courses in theology.
+						</td>
+					</tr>
+					<tr data-id="160" id="_160">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_140.png"
+								class="image"><img alt="Achievement 140.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/da/Achievement_140.png/80px-Achievement_140.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/da/Achievement_140.png 1.5x"></a>
+						</td>
+						<td>Elegant Nobleman
+						</td>
+						<td>300
+						</td>
+						<td>Complete 14 courses in Liturgy.
+						</td>
+					</tr>
+					<tr data-id="161" id="_161">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_141.png"
+								class="image"><img alt="Achievement 141.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/bd/Achievement_141.png/80px-Achievement_141.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/bd/Achievement_141.png 1.5x"></a>
+						</td>
+						<td>Master of Literature
+						</td>
+						<td>300
+						</td>
+						<td>Complete 14 poetry and calligraphy courses.
+						</td>
+					</tr>
+					<tr data-id="162" id="_162">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_142.png"
+								class="image"><img alt="Achievement 142.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/02/Achievement_142.png/80px-Achievement_142.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/02/Achievement_142.png 1.5x"></a>
+						</td>
+						<td>Master of Painting
+						</td>
+						<td>300
+						</td>
+						<td>Completed 14 Painting courses.
+						</td>
+					</tr>
+					<tr data-id="163" id="_163">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_143.png"
+								class="image"><img alt="Achievement 143.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/df/Achievement_143.png/80px-Achievement_143.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/df/Achievement_143.png 1.5x"></a>
+						</td>
+						<td>Master of Music
+						</td>
+						<td>300
+						</td>
+						<td>Completed 14 music courses.
+						</td>
+					</tr>
+					<tr data-id="164" id="_164">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_144.png"
+								class="image"><img alt="Achievement 144.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/c/ca/Achievement_144.png/80px-Achievement_144.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/c/ca/Achievement_144.png 1.5x"></a>
+						</td>
+						<td>Master of Alchemy
+						</td>
+						<td>300
+						</td>
+						<td>Repair 20 items successfully.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>World Exploration</h3>
+			<table class="table table-bordered table-striped table-dark">
+
+				<tbody>
+					<tr>
+						<th>
+						</th>
+						<th>Name</th>
+						<th>Achievement Points</th>
+						<th>How to Obtain
+						</th>
+					</tr>
+					<tr data-id="166" id="_166">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_29.png"
+								class="image"><img alt="Achievement 29.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/0e/Achievement_29.png/80px-Achievement_29.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/0e/Achievement_29.png 1.5x"></a>
+						</td>
+						<td>The taste of winning a solo fight</td>
+						<td>100</td>
+						<td>Win 10 solo fights.
+						</td>
+					</tr>
+					<tr data-id="167" id="_167">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_30.png"
+								class="image"><img alt="Achievement 30.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f2/Achievement_30.png/80px-Achievement_30.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f2/Achievement_30.png 1.5x"></a>
+						</td>
+						<td>Used to winning</td>
+						<td>200</td>
+						<td>Win 20 solo fights.
+						</td>
+					</tr>
+					<tr data-id="168" id="_168">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_0.png"
+								class="image"><img alt="Achievement 0.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f7/Achievement_0.png/80px-Achievement_0.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f7/Achievement_0.png 1.5x"></a>
+						</td>
+						<td>Wonderful Date</td>
+						<td>100</td>
+						<td>Complete 10 perfect dates.
+						</td>
+					</tr>
+					<tr data-id="169" id="_169">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_1.png"
+								class="image"><img alt="Achievement 1.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/11/Achievement_1.png/80px-Achievement_1.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/11/Achievement_1.png 1.5x"></a>
+						</td>
+						<td>Dating Expert</td>
+						<td>300</td>
+						<td>Complete 30 perfect dates.
+						</td>
+					</tr>
+					<tr data-id="170" id="_170">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_2.png"
+								class="image"><img alt="Achievement 2.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f9/Achievement_2.png/80px-Achievement_2.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f9/Achievement_2.png 1.5x"></a>
+						</td>
+						<td>Let's Date
+						</td>
+						<td>50
+						</td>
+						<td>Dated 10 times.
+						</td>
+					</tr>
+					<tr data-id="171" id="_171">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_3.png"
+								class="image"><img alt="Achievement 3.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/3c/Achievement_3.png/80px-Achievement_3.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/3c/Achievement_3.png 1.5x"></a>
+						</td>
+						<td>Dating is the most enjoyable thing
+						</td>
+						<td>200
+						</td>
+						<td>Dated 50 times.
+						</td>
+					</tr>
+					<tr data-id="172" id="_172">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_4.png"
+								class="image"><img alt="Achievement 4.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/2f/Achievement_4.png/80px-Achievement_4.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/2f/Achievement_4.png 1.5x"></a>
+						</td>
+						<td>Can we date often
+						</td>
+						<td>100
+						</td>
+						<td>Dated 30 times.
+						</td>
+					</tr>
+					<tr data-id="173" id="_173">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_8.png"
+								class="image"><img alt="Achievement 8.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/76/Achievement_8.png/80px-Achievement_8.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/76/Achievement_8.png 1.5x"></a>
+						</td>
+						<td>Hardworking Painter</td>
+						<td>100</td>
+						<td>Complete 5 paintings
+						</td>
+					</tr>
+					<tr data-id="174" id="_174">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_9.png"
+								class="image"><img alt="Achievement 9.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/4d/Achievement_9.png/80px-Achievement_9.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/4d/Achievement_9.png 1.5x"></a>
+						</td>
+						<td>Genius Painter
+						</td>
+						<td>200
+						</td>
+						<td>Complete 10 paintings.
+						</td>
+					</tr>
+					<tr data-id="175" id="_175">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_10.png"
+								class="image"><img alt="Achievement 10.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/7e/Achievement_10.png/80px-Achievement_10.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/7e/Achievement_10.png 1.5x"></a>
+						</td>
+						<td>Dedicated Painter
+						</td>
+						<td>300
+						</td>
+						<td>Complete 20 paintings.
+						</td>
+					</tr>
+					<tr data-id="176" id="_176">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_11.png"
+								class="image"><img alt="Achievement 11.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/2c/Achievement_11.png/80px-Achievement_11.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/2c/Achievement_11.png 1.5x"></a>
+						</td>
+						<td>Proficient Actress
+						</td>
+						<td>100
+						</td>
+						<td>Complete 5 plays.
+						</td>
+					</tr>
+					<tr data-id="177" id="_177">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_12.png"
+								class="image"><img alt="Achievement 12.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/8d/Achievement_12.png/80px-Achievement_12.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/8d/Achievement_12.png 1.5x"></a>
+						</td>
+						<td>Hardworking Actress
+						</td>
+						<td>200
+						</td>
+						<td>Complete 10 plays
+						</td>
+					</tr>
+					<tr data-id="178" id="_178">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_13.png"
+								class="image"><img alt="Achievement 13.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/17/Achievement_13.png/80px-Achievement_13.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/17/Achievement_13.png 1.5x"></a>
+						</td>
+						<td>Dedicated Actress
+						</td>
+						<td>300
+						</td>
+						<td>Complete 20 plays.
+						</td>
+					</tr>
+					<tr data-id="179" id="_179">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_14.png"
+								class="image"><img alt="Achievement 14.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/68/Achievement_14.png/80px-Achievement_14.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/68/Achievement_14.png 1.5x"></a>
+						</td>
+						<td>Accomplished Theater Actress
+						</td>
+						<td>50
+						</td>
+						<td>First time completing a B grade performance
+						</td>
+					</tr>
+					<tr data-id="180" id="_180">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_15.png"
+								class="image"><img alt="Achievement 15.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/09/Achievement_15.png/80px-Achievement_15.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/09/Achievement_15.png 1.5x"></a>
+						</td>
+						<td>High-profiled Theater Actress
+						</td>
+						<td>100
+						</td>
+						<td>First time completing an A grade performance.
+						</td>
+					</tr>
+					<tr data-id="181" id="_181">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_16.png"
+								class="image"><img alt="Achievement 16.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/ba/Achievement_16.png/80px-Achievement_16.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/ba/Achievement_16.png 1.5x"></a>
+						</td>
+						<td>Theater's Rising Star
+						</td>
+						<td>200
+						</td>
+						<td>First time completing a S grade performance.
+						</td>
+					</tr>
+					<tr data-id="182" id="_182">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_17.png"
+								class="image"><img alt="Achievement 17.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/21/Achievement_17.png/80px-Achievement_17.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/21/Achievement_17.png 1.5x"></a>
+						</td>
+						<td>Expensive Appearance Fee
+						</td>
+						<td>50
+						</td>
+						<td>Earn 400G on performance.
+						</td>
+					</tr>
+					<tr data-id="183" id="_183">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_18.png"
+								class="image"><img alt="Achievement 18.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/03/Achievement_18.png/80px-Achievement_18.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/03/Achievement_18.png 1.5x"></a>
+						</td>
+						<td>It is an expensive performance
+						</td>
+						<td>100
+						</td>
+						<td>Earn 800G on performance.
+						</td>
+					</tr>
+					<tr data-id="184" id="_184">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_19.png"
+								class="image"><img alt="Achievement 19.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1f/Achievement_19.png/80px-Achievement_19.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1f/Achievement_19.png 1.5x"></a>
+						</td>
+						<td>New Explorer
+						</td>
+						<td>100
+						</td>
+						<td>Become a Green Explorer.
+						</td>
+					</tr>
+					<tr data-id="185" id="_185">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_20.png"
+								class="image"><img alt="Achievement 20.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/9/93/Achievement_20.png/80px-Achievement_20.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/9/93/Achievement_20.png 1.5x"></a>
+						</td>
+						<td>Matured Explorer
+						</td>
+						<td>300
+						</td>
+						<td>Become a Blue-Silk Explorer
+						</td>
+					</tr>
+					<tr data-id="186" id="_186">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_21.png"
+								class="image"><img alt="Achievement 21.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/a9/Achievement_21.png/80px-Achievement_21.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/a9/Achievement_21.png 1.5x"></a>
+						</td>
+						<td>Excellent Demon Hunter
+						</td>
+						<td>500
+						</td>
+						<td>Become a Gold Demon Hunter.
+						</td>
+					</tr>
+					<tr data-id="187" id="_187">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_22.png"
+								class="image"><img alt="Achievement 22.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1f/Achievement_22.png/80px-Achievement_22.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1f/Achievement_22.png 1.5x"></a>
+						</td>
+						<td>Be brave and head to the forest!
+						</td>
+						<td>50
+						</td>
+						<td>Complete 1 explorations.
+						</td>
+					</tr>
+					<tr data-id="188" id="_188">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_23.png"
+								class="image"><img alt="Achievement 23.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/af/Achievement_23.png/80px-Achievement_23.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/af/Achievement_23.png 1.5x"></a>
+						</td>
+						<td>Familiar forest
+						</td>
+						<td>100
+						</td>
+						<td>Complete 5 explorations.
+						</td>
+					</tr>
+					<tr data-id="189" id="_189">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_25.png"
+								class="image"><img alt="Achievement 25.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/4/40/Achievement_25.png/80px-Achievement_25.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/4/40/Achievement_25.png 1.5x"></a>
+						</td>
+						<td>A member of the Forgotten Forest
+						</td>
+						<td>300
+						</td>
+						<td>Complete 20 explorations.
+						</td>
+					</tr>
+					<tr data-id="190" id="_190">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_24.png"
+								class="image"><img alt="Achievement 24.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/c/c3/Achievement_24.png/80px-Achievement_24.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/c/c3/Achievement_24.png 1.5x"></a>
+						</td>
+						<td>Walk freely in the forest
+						</td>
+						<td>200
+						</td>
+						<td>Complete 10 explorations.
+						</td>
+					</tr>
+					<tr data-id="191" id="_191">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_26.png"
+								class="image"><img alt="Achievement 26.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/0/0e/Achievement_26.png/80px-Achievement_26.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/0/0e/Achievement_26.png 1.5x"></a>
+						</td>
+						<td>This is the feeling of battle!
+						</td>
+						<td>100
+						</td>
+						<td>Win 10 battles.
+						</td>
+					</tr>
+					<tr data-id="192" id="_192">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_27.png"
+								class="image"><img alt="Achievement 27.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/80/Achievement_27.png/80px-Achievement_27.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/80/Achievement_27.png 1.5x"></a>
+						</td>
+						<td>Proficient Battler
+						</td>
+						<td>300
+						</td>
+						<td>Win 50 battles.
+						</td>
+					</tr>
+					<tr data-id="193" id="_193">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_28.png"
+								class="image"><img alt="Achievement 28.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/9/9b/Achievement_28.png/80px-Achievement_28.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/9/9b/Achievement_28.png 1.5x"></a>
+						</td>
+						<td>Ares
+						</td>
+						<td>500
+						</td>
+						<td>Win 100 battles.
+						</td>
+					</tr>
+					<tr data-id="194" id="_194">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_36.png"
+								class="image"><img alt="Achievement 36.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/7d/Achievement_36.png/80px-Achievement_36.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/7d/Achievement_36.png 1.5x"></a>
+						</td>
+						<td>Active Chatter
+						</td>
+						<td>50
+						</td>
+						<td>Chat with others 50 times.
+						</td>
+					</tr>
+					<tr data-id="195" id="_195">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_37.png"
+								class="image"><img alt="Achievement 37.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f7/Achievement_37.png/80px-Achievement_37.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f7/Achievement_37.png 1.5x"></a>
+						</td>
+						<td>Like the Wind
+						</td>
+						<td>150
+						</td>
+						<td>Chat with others 100 times.
+						</td>
+					</tr>
+					<tr data-id="196" id="_196">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_38.png"
+								class="image"><img alt="Achievement 38.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/3b/Achievement_38.png/80px-Achievement_38.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/3b/Achievement_38.png 1.5x"></a>
+						</td>
+						<td>Master of Chatting
+						</td>
+						<td>300
+						</td>
+						<td>Chat with others 200 times.
+						</td>
+					</tr>
+					<tr data-id="197" id="_197">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_39.png"
+								class="image"><img alt="Achievement 39.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/5c/Achievement_39.png/80px-Achievement_39.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/5c/Achievement_39.png 1.5x"></a>
+						</td>
+						<td>The Walking "Why"
+						</td>
+						<td>100
+						</td>
+						<td>Ask others for advice 20 times.
+						</td>
+					</tr>
+					<tr data-id="198" id="_198">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_40.png"
+								class="image"><img alt="Achievement 40.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f8/Achievement_40.png/80px-Achievement_40.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f8/Achievement_40.png 1.5x"></a>
+						</td>
+						<td>Ask Everyone
+						</td>
+						<td>200
+						</td>
+						<td>Ask others for advice 40 times.
+						</td>
+					</tr>
+					<tr data-id="199" id="_199">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_41.png"
+								class="image"><img alt="Achievement 41.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/2e/Achievement_41.png/80px-Achievement_41.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/2e/Achievement_41.png 1.5x"></a>
+						</td>
+						<td>Learning Artist
+						</td>
+						<td>300
+						</td>
+						<td>Ask others for advice 70 times.
+						</td>
+					</tr>
+					<tr data-id="200" id="_200">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_42.png"
+								class="image"><img alt="Achievement 42.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/6e/Achievement_42.png/80px-Achievement_42.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/6e/Achievement_42.png 1.5x"></a>
+						</td>
+						<td>Gifting Newbie
+						</td>
+						<td>50
+						</td>
+						<td>Successfully send out 10 gifts.
+						</td>
+					</tr>
+					<tr data-id="201" id="_201">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_43.png"
+								class="image"><img alt="Achievement 43.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/a5/Achievement_43.png/80px-Achievement_43.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/a5/Achievement_43.png 1.5x"></a>
+						</td>
+						<td>Gifting Expert
+						</td>
+						<td>100
+						</td>
+						<td>Successfully send out 30 gifts.
+						</td>
+					</tr>
+					<tr data-id="202" id="_202">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_44.png"
+								class="image"><img alt="Achievement 44.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/af/Achievement_44.png/80px-Achievement_44.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/af/Achievement_44.png 1.5x"></a>
+						</td>
+						<td>Everyone Likes My Gifts
+						</td>
+						<td>200
+						</td>
+						<td>Successfully send out 50 gifts.
+						</td>
+					</tr>
+					<tr data-id="203" id="_203">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_45.png"
+								class="image"><img alt="Achievement 45.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/1e/Achievement_45.png/80px-Achievement_45.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/1e/Achievement_45.png 1.5x"></a>
+						</td>
+						<td>Lovable Gifter
+						</td>
+						<td>300
+						</td>
+						<td>Successfully send out 80 gifts.
+						</td>
+					</tr>
+					<tr data-id="204" id="_204">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_46.png"
+								class="image"><img alt="Achievement 46.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/70/Achievement_46.png/80px-Achievement_46.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/70/Achievement_46.png 1.5x"></a>
+						</td>
+						<td>Warmhearted Letter Writer
+						</td>
+						<td>100
+						</td>
+						<td>Return 5 love-letters.
+						</td>
+					</tr>
+					<tr data-id="205" id="_205">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_47.png"
+								class="image"><img alt="Achievement 47.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/25/Achievement_47.png/80px-Achievement_47.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/25/Achievement_47.png 1.5x"></a>
+						</td>
+						<td>Popular Penpal
+						</td>
+						<td>200
+						</td>
+						<td>Return 10 love-letters.
+						</td>
+					</tr>
+					<tr data-id="206" id="_206">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_48.png"
+								class="image"><img alt="Achievement 48.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/11/Achievement_48.png/80px-Achievement_48.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/11/Achievement_48.png 1.5x"></a>
+						</td>
+						<td>Reputable Replier
+						</td>
+						<td>300
+						</td>
+						<td>Return 20 love-letters.
+						</td>
+					</tr>
+					<tr data-id="207" id="_207">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_53.png"
+								class="image"><img alt="Achievement 53.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/a1/Achievement_53.png/80px-Achievement_53.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/a1/Achievement_53.png 1.5x"></a>
+						</td>
+						<td>I have an admirer?
+						</td>
+						<td>100
+						</td>
+						<td>Have 50 admirers.
+						</td>
+					</tr>
+					<tr data-id="208" id="_208">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_54.png"
+								class="image"><img alt="Achievement 54.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/15/Achievement_54.png/80px-Achievement_54.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/15/Achievement_54.png 1.5x"></a>
+						</td>
+						<td>Receiving love letters is a common practice
+						</td>
+						<td>300
+						</td>
+						<td>Have 500 admirers.
+						</td>
+					</tr>
+					<tr data-id="209" id="_209">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_55.png"
+								class="image"><img alt="Achievement 55.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/1/15/Achievement_55.png/80px-Achievement_55.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/1/15/Achievement_55.png 1.5x"></a>
+						</td>
+						<td>Get lots of love
+						</td>
+						<td>200
+						</td>
+						<td>Have 200 admirers.
+						</td>
+					</tr>
+					<tr data-id="210" id="_210">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_56.png"
+								class="image"><img alt="Achievement 56.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/b/b2/Achievement_56.png/80px-Achievement_56.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/b/b2/Achievement_56.png 1.5x"></a>
+						</td>
+						<td>Everyone likes me
+						</td>
+						<td>500
+						</td>
+						<td>Have 1000 admirers.
+						</td>
+					</tr>
+					<tr data-id="211" id="_211">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_57.png"
+								class="image"><img alt="Achievement 57.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/88/Achievement_57.png/80px-Achievement_57.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/88/Achievement_57.png 1.5x"></a>
+						</td>
+						<td>Daughter's Thank You Gift
+						</td>
+						<td>100
+						</td>
+						<td>Father's favorable impression reach 50.
+						</td>
+					</tr>
+					<tr data-id="212" id="_212">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_58.png"
+								class="image"><img alt="Achievement 58.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/ec/Achievement_58.png/80px-Achievement_58.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/ec/Achievement_58.png 1.5x"></a>
+						</td>
+						<td>The best you in the world
+						</td>
+						<td>300
+						</td>
+						<td>Father's favorable impression reach 200.
+						</td>
+					</tr>
+					<tr data-id="213" id="_213">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_59.png"
+								class="image"><img alt="Achievement 59.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/60/Achievement_59.png/80px-Achievement_59.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/60/Achievement_59.png 1.5x"></a>
+						</td>
+						<td>Daughters' company
+						</td>
+						<td>200
+						</td>
+						<td>Father's favorable impression reach 100
+						</td>
+					</tr>
+					<tr data-id="214" id="_214">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_66.png"
+								class="image"><img alt="Achievement 66.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/2d/Achievement_66.png/80px-Achievement_66.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/2d/Achievement_66.png 1.5x"></a>
+						</td>
+						<td>Part-time Newbie
+						</td>
+						<td>100
+						</td>
+						<td>Complete 10 part times.
+						</td>
+					</tr>
+					<tr data-id="215" id="_215">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_67.png"
+								class="image"><img alt="Achievement 67.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/d9/Achievement_67.png/80px-Achievement_67.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/d9/Achievement_67.png 1.5x"></a>
+						</td>
+						<td>Proficiently working
+						</td>
+						<td>200
+						</td>
+						<td>Complete 40 part times.
+						</td>
+					</tr>
+					<tr data-id="216" id="_216">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_68.png"
+								class="image"><img alt="Achievement 68.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f4/Achievement_68.png/80px-Achievement_68.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f4/Achievement_68.png 1.5x"></a>
+						</td>
+						<td>Workaholic
+						</td>
+						<td>300
+						</td>
+						<td>Complete 70 part times.
+						</td>
+					</tr>
+					<tr data-id="217" id="_217">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_69.png"
+								class="image"><img alt="Achievement 69.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/c/cc/Achievement_69.png/80px-Achievement_69.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/c/cc/Achievement_69.png 1.5x"></a>
+						</td>
+						<td>Gold Kangaroo
+						</td>
+						<td>50
+						</td>
+						<td>Earn 500G during exploration.
+						</td>
+					</tr>
+					<tr data-id="218" id="_218">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_70.png"
+								class="image"><img alt="Achievement 70.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/ed/Achievement_70.png/80px-Achievement_70.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/ed/Achievement_70.png 1.5x"></a>
+						</td>
+						<td>So much money
+						</td>
+						<td>200
+						</td>
+						<td>Earn 5000G during exploration.
+						</td>
+					</tr>
+					<tr data-id="219" id="_219">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_71.png"
+								class="image"><img alt="Achievement 71.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/f/f1/Achievement_71.png/80px-Achievement_71.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/f/f1/Achievement_71.png 1.5x"></a>
+						</td>
+						<td>Gold Detector
+						</td>
+						<td>100
+						</td>
+						<td>Earn 2000G during exploration.
+						</td>
+					</tr>
+					<tr data-id="220" id="_220">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_72.png"
+								class="image"><img alt="Achievement 72.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/9/9c/Achievement_72.png/80px-Achievement_72.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/9/9c/Achievement_72.png 1.5x"></a>
+						</td>
+						<td>Item Robber
+						</td>
+						<td>50
+						</td>
+						<td>Total items obtained during exploration reach 100.
+						</td>
+					</tr>
+					<tr data-id="221" id="_221">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_73.png"
+								class="image"><img alt="Achievement 73.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/d4/Achievement_73.png/80px-Achievement_73.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/d4/Achievement_73.png 1.5x"></a>
+						</td>
+						<td>Treasure Expert
+						</td>
+						<td>100
+						</td>
+						<td>Total items obtained during exploration reach 200.
+						</td>
+					</tr>
+					<tr data-id="222" id="_222">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_74.png"
+								class="image"><img alt="Achievement 74.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/d3/Achievement_74.png/80px-Achievement_74.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/d3/Achievement_74.png 1.5x"></a>
+						</td>
+						<td>Gold Treasure Hunter
+						</td>
+						<td>200
+						</td>
+						<td>Total items obtained during exploration reach 400.
+						</td>
+					</tr>
+					<tr data-id="223" id="_223">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_75.png"
+								class="image"><img alt="Achievement 75.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/6/6b/Achievement_75.png/80px-Achievement_75.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/6/6b/Achievement_75.png 1.5x"></a>
+						</td>
+						<td>Light of the Street
+						</td>
+						<td>100
+						</td>
+						<td>Solve 10 crimes.
+						</td>
+					</tr>
+					<tr data-id="224" id="_224">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_76.png"
+								class="image"><img alt="Achievement 76.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/2b/Achievement_76.png/80px-Achievement_76.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/2b/Achievement_76.png 1.5x"></a>
+						</td>
+						<td>Shadow Killer
+						</td>
+						<td>200
+						</td>
+						<td>Solve 20 crimes.
+						</td>
+					</tr>
+					<tr data-id="225" id="_225">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_77.png"
+								class="image"><img alt="Achievement 77.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/d4/Achievement_77.png/80px-Achievement_77.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/d4/Achievement_77.png 1.5x"></a>
+						</td>
+						<td>Justice Eagle
+						</td>
+						<td>300
+						</td>
+						<td>Solve 30 crimes.
+						</td>
+					</tr>
+					<tr data-id="226" id="_226">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_78.png"
+								class="image"><img alt="Achievement 78.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/2e/Achievement_78.png/80px-Achievement_78.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/2e/Achievement_78.png 1.5x"></a>
+						</td>
+						<td>Racecourse Veteran
+						</td>
+						<td>200
+						</td>
+						<td>Participate in 8 horseraces.
+						</td>
+					</tr>
+					<tr data-id="227" id="_227">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_79.png"
+								class="image"><img alt="Achievement 79.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/7/79/Achievement_79.png/80px-Achievement_79.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/7/79/Achievement_79.png 1.5x"></a>
+						</td>
+						<td>New to Racecourse
+						</td>
+						<td>100
+						</td>
+						<td>Participate in 3 horseraces.
+						</td>
+					</tr>
+					<tr data-id="228" id="_228">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_80.png"
+								class="image"><img alt="Achievement 80.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/db/Achievement_80.png/80px-Achievement_80.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/db/Achievement_80.png 1.5x"></a>
+						</td>
+						<td>Racecourse Regular
+						</td>
+						<td>300
+						</td>
+						<td>Participate in 15 horseraces.
+						</td>
+					</tr>
+					<tr data-id="229" id="_229">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_84.png"
+								class="image"><img alt="Achievement 84.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/2/2c/Achievement_84.png/80px-Achievement_84.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/2/2c/Achievement_84.png 1.5x"></a>
+						</td>
+						<td>Forest Explorer
+						</td>
+						<td>50
+						</td>
+						<td>Arrival at the end of Oasis Forest
+						</td>
+					</tr>
+					<tr data-id="230" id="_230">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_85.png"
+								class="image"><img alt="Achievement 85.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/d/d9/Achievement_85.png/80px-Achievement_85.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/d/d9/Achievement_85.png 1.5x"></a>
+						</td>
+						<td>Frosty Brave
+						</td>
+						<td>100
+						</td>
+						<td>Arrival at the end of Frost Canyon
+						</td>
+					</tr>
+					<tr data-id="231" id="_231">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_86.png"
+								class="image"><img alt="Achievement 86.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/a/a9/Achievement_86.png/80px-Achievement_86.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/a/a9/Achievement_86.png 1.5x"></a>
+						</td>
+						<td>Flaming Warrior
+						</td>
+						<td>200
+						</td>
+						<td>Arrive at the end of Flaming River
+						</td>
+					</tr>
+					<tr data-id="232" id="_232">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_87.png"
+								class="image"><img alt="Achievement 87.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/5b/Achievement_87.png/80px-Achievement_87.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/5b/Achievement_87.png 1.5x"></a>
+						</td>
+						<td>Dark Brave
+						</td>
+						<td>300
+						</td>
+						<td>Arrival at the end of Hell Beach
+						</td>
+					</tr>
+					<tr data-id="233" id="_233">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_88.png"
+								class="image"><img alt="Achievement 88.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/8/8b/Achievement_88.png/80px-Achievement_88.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/8/8b/Achievement_88.png 1.5x"></a>
+						</td>
+						<td>Beginner Chef
+						</td>
+						<td>50
+						</td>
+						<td>Cook 20 times.
+						</td>
+					</tr>
+					<tr data-id="234" id="_234">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_89.png"
+								class="image"><img alt="Achievement 89.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/56/Achievement_89.png/80px-Achievement_89.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/56/Achievement_89.png 1.5x"></a>
+						</td>
+						<td>Delicacy Cooker
+						</td>
+						<td>100
+						</td>
+						<td>Cook 70 times.
+						</td>
+					</tr>
+					<tr data-id="235" id="_235">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_90.png"
+								class="image"><img alt="Achievement 90.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/c/ce/Achievement_90.png/80px-Achievement_90.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/c/ce/Achievement_90.png 1.5x"></a>
+						</td>
+						<td>Master Chef
+						</td>
+						<td>200
+						</td>
+						<td>Cook 150 times.
+						</td>
+					</tr>
+					<tr data-id="236" id="_236">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_97.png"
+								class="image"><img alt="Achievement 97.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/38/Achievement_97.png/80px-Achievement_97.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/38/Achievement_97.png 1.5x"></a>
+						</td>
+						<td>Banquet Star
+						</td>
+						<td>300
+						</td>
+						<td>Participate in 20 proms.
+						</td>
+					</tr>
+					<tr data-id="237" id="_237">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_98.png"
+								class="image"><img alt="Achievement 98.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/e/ee/Achievement_98.png/80px-Achievement_98.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/e/ee/Achievement_98.png 1.5x"></a>
+						</td>
+						<td>Banquet Commentator
+						</td>
+						<td>100
+						</td>
+						<td>Participate in 10 proms.
+						</td>
+					</tr>
+					<tr data-id="238" id="_238">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_112.png"
+								class="image"><img alt="Achievement 112.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/5/50/Achievement_112.png/80px-Achievement_112.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/5/50/Achievement_112.png 1.5x"></a>
+						</td>
+						<td>Greetings, Your Highness
+						</td>
+						<td>200
+						</td>
+						<td>Meet Princess Gwyneth at the prom (Encounter <a
+								href="https://volcanoprincess.miraheze.org/wiki/Gwyneth" title="Gwyneth">Gwyneth</a>
+							at the <a href="https://volcanoprincess.miraheze.org/wiki/Banquet"
+								title="Banquet">Banquet</a> in Ginkgo Manor).
+						</td>
+					</tr>
+					<tr data-id="239" id="_239">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_123.png"
+								class="image"><img alt="Achievement 123.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/9/94/Achievement_123.png/80px-Achievement_123.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/9/94/Achievement_123.png 1.5x"></a>
+						</td>
+						<td>Feeding the Wolf Cub
+						</td>
+						<td>100
+						</td>
+						<td>Feed a wolf cub during adventure (Random exploration event at Holy Light Valley and
+							have cooked meat dish in inventory).
+						</td>
+					</tr>
+					<tr data-id="240" id="_240">
+						<td><a href="https://volcanoprincess.miraheze.org/wiki/File:Achievement_122.png"
+								class="image"><img alt="Achievement 122.png"
+									src="https://static.miraheze.org/volcanoprincesswiki/thumb/3/35/Achievement_122.png/80px-Achievement_122.png"
+									decoding="async" width="80" height="80"
+									srcset="https://static.miraheze.org/volcanoprincesswiki/3/35/Achievement_122.png 1.5x"></a>
+						</td>
+						<td>The Blessing of the Sacrificial Tower
+						</td>
+						<td>300
+						</td>
+						<td>Knock 3 times the door of the Sacrificial Tower, and get the <a
+								href="https://volcanoprincess.miraheze.org/wiki/Staff_of_Volcano_Gate"
+								title="Staff of Volcano Gate">staff of the
+								sacrificial tower</a> (Random exploration event at Flame River).
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
